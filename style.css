@@ -11,6 +11,7 @@ body {
   margin:  20px auto auto;
   border-radius: 20px;
   background-color: rgb(255, 255, 255);
+  color: rgb(76, 76, 76);
 }
 
 header {
@@ -22,9 +23,24 @@ header {
 
 h1 {
   padding: 20px 0px 20px;
-  color: rgb(76, 49, 96);
+  color: rgb(50, 50, 50);
 }
 
 #content {
   padding: 20px;
+}
+
+#texto-tarefa, #criar-tarefa {
+  border-radius: 20px;
+  margin: 20px 0px 20px;
+}
+
+#criar-tarefa {
+  background-color: rgba(135, 95, 245, 0.526);
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+#criar-tarefa:hover {
+  background-color: rgba(69, 1, 255, 0.526);
 }
