@@ -44,3 +44,8 @@ h1 {
 #criar-tarefa:hover {
   background-color: rgba(69, 1, 255, 0.526);
 }
+
+.itemMarked {
+  background-color: rgb(128, 128, 128);
+  /* text-decoration: line-through rgba(255, 0, 0, 0.564); transforma em um texto deletado */
+}
