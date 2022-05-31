@@ -1,7 +1,16 @@
-function markTask() {
+function markOffTask() {
+  const wayToLi = document.querySelectorAll('li');
+
+  for (let i = 0; i < wayToLi.length; i += 1) {
+    wayToLi[i].classList.remove('itemMarked');
+  }
+}
+
+function markOnTask() {
   const wayToLi = document.querySelectorAll('li');
 
   function mark(event) {
+    markOffTask()
     event.target.classList.add('itemMarked');
   }
 
@@ -22,7 +31,7 @@ function createNewTask() {
     wayToOl.appendChild(createNewLI)
     createNewLI.innerText = wayToInput.value;
     wayToInput.value = '' // limpa o input
-    markTask();
+    markOnTask();
   }
 
   wayToButton.addEventListener('click', addNewTask)
@@ -30,5 +39,6 @@ function createNewTask() {
 }
 
 createNewTask();
+
 
 
