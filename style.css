@@ -30,7 +30,7 @@ h1 {
   padding: 20px;
 }
 
-#texto-tarefa, #criar-tarefa {
+#texto-tarefa, #criar-tarefa, #apaga-tudo {
   border-radius: 20px;
   margin: 20px 0px 20px;
 }
@@ -45,7 +45,21 @@ h1 {
   background-color: rgba(69, 1, 255, 0.526);
 }
 
-.itemMarked {
+#apaga-tudo:hover {
+  background-color: rgba(253, 80, 80, 0.838);
+  color: rgb(255, 255, 255);
+}
+
+.item-marked {
+  color: rgb(0, 0, 0);
   background-color: rgb(128, 128, 128);
-  /* text-decoration: line-through rgba(255, 0, 0, 0.564); transforma em um texto deletado */
+  border-radius: 20px;
+}
+
+li {
+  padding-left: 10px;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0); /*transforma em um texto deletado*/
 }
