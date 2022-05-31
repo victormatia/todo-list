@@ -20,18 +20,18 @@ function markOnTask() {
   }
 }
 
+function mark(event) {
+  const target = event.target;
+
+  if (target.classList.contains('completed')) {
+    target.classList.remove('completed');
+  } else {
+    target.classList.add('completed');
+  }
+}
+
 function completeTask() { // por algum motivo quando existem mais de 3 itens na lista os numeros impares não funcionam direito.
   const wayToLi = document.querySelectorAll('li');
-
-  function mark(event) {
-    const target = event.target;
-
-    if (target.classList.contains('completed')) {
-      target.classList.remove('completed');
-    } else {
-      target.classList.add('completed');
-    }
-  }
 
   for (let itens of wayToLi) {
     itens.addEventListener('dblclick', mark);
