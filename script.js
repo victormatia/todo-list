@@ -20,7 +20,7 @@ function markOnTask() {
   }
 }
 
-function mark(event) {
+function markComplete(event) {
   const target = event.target;
 
   if (target.classList.contains('completed')) {
@@ -30,11 +30,11 @@ function mark(event) {
   }
 }
 
-function completeTask() { // por algum motivo quando existem mais de 3 itens na lista os numeros impares não funcionam direito.
+function completeTask() { 
   const wayToLi = document.querySelectorAll('li');
 
   for (let itens of wayToLi) {
-    itens.addEventListener('dblclick', mark);
+    itens.addEventListener('dblclick', markComplete);
   }
 }
 
@@ -53,6 +53,22 @@ function clearTasks () {
 
 }
 
+function deleteCompleted() {
+  const wayToRemoverFinalizadas = document.getElementById('remover-finalizados');
+  const wayToCompleteds = document.getElementsByTagName('li');
+  
+  function deleteTask() {
+    for (let li of wayToCompleteds) {
+      const style  = getComputedStyle(li).textDecoration // LEMBRE-SE! Se você usar o getComputedStyle() o primeiro parâmetro tem que ser do tipo 'Element'. Caso seja do tipo 'ElementS' ele irá dar erro!! 
+      
+      if (style === 'line-through solid rgb(0, 0, 0)') {
+        li.remove();
+      }
+    }
+  }
+
+  wayToRemoverFinalizadas.addEventListener('click', deleteTask);
+}
 
 function createNewTask() {
   const wayToButton = document.querySelector('#criar-tarefa');
@@ -71,6 +87,7 @@ function createNewTask() {
       markOnTask();
       completeTask();
       clearTasks();
+      deleteCompleted()
     }
   }
 

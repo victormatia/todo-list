@@ -30,7 +30,7 @@ h1 {
   padding: 20px;
 }
 
-#texto-tarefa, #criar-tarefa, #apaga-tudo {
+#texto-tarefa, #criar-tarefa, #apaga-tudo, #remover-finalizados {
   border-radius: 20px;
   margin: 20px 0px 20px;
 }
@@ -47,6 +47,11 @@ h1 {
 
 #apaga-tudo:hover {
   background-color: rgba(253, 80, 80, 0.838);
+  color: rgb(255, 255, 255);
+}
+
+#remover-finalizados:hover {
+  background-color: rgba(109, 162, 73, 0.838);
   color: rgb(255, 255, 255);
 }
 
