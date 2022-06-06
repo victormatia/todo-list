@@ -40,13 +40,13 @@ function completeTask() {
 
 function clearTasks () {
   const wayToApagaTudo = document.querySelector('#apaga-tudo')
-  const wayToOl = document.querySelector('#lista-tarefas');
   const wayToLi = document.querySelectorAll('li');
 
   function deleteItem() {
     for (let i =0; i < wayToLi.length; i += 1) {
       wayToLi[i].remove();
     }
+    sessionStorage.clear()
   }
 
   wayToApagaTudo.addEventListener('click', deleteItem);
@@ -88,6 +88,7 @@ function createNewTask() {
       completeTask();
       clearTasks();
       deleteCompleted()
+      saveList();
     }
   }
 
@@ -95,3 +96,22 @@ function createNewTask() {
 }
 
 createNewTask();
+
+function saveList() { // Salva toda a lista em sessionStorage
+  const wayToSalvar = document.querySelector('#salvar-tarefas');
+  const wayToOl = document.querySelector('#lista-tarefas');
+
+  function save() {
+    sessionStorage.setItem('LT', wayToOl.innerHTML);
+  }
+
+  wayToSalvar.addEventListener('click', save);
+}
+
+window.onload = function returnTasks() {
+  const wayToOl = document.querySelector('#lista-tarefas');
+
+  if (sessionStorage.getItem('LT') !== '') {
+    wayToOl.innerHTML = sessionStorage.getItem('LT');
+  }  
+}

@@ -8,6 +8,7 @@ body {
 
 #main-content {
   width: 80%;
+  max-width: 500px;
   margin:  20px auto auto;
   border-radius: 20px;
   background-color: rgb(255, 255, 255);
@@ -30,7 +31,7 @@ h1 {
   padding: 20px;
 }
 
-#texto-tarefa, #criar-tarefa, #apaga-tudo, #remover-finalizados {
+#texto-tarefa, #criar-tarefa, #apaga-tudo, #remover-finalizados, #salvar-tarefas {
   border-radius: 20px;
   margin: 20px 0px 20px;
 }
@@ -47,12 +48,23 @@ h1 {
 
 #apaga-tudo:hover {
   background-color: rgba(253, 80, 80, 0.838);
+  opacity: 1;
   color: rgb(255, 255, 255);
 }
 
 #remover-finalizados:hover {
   background-color: rgba(109, 162, 73, 0.838);
   color: rgb(255, 255, 255);
+}
+
+#salvar-tarefas {
+  color: rgb(255, 255, 255);
+  background-color: rgb(60, 148, 119);
+  opacity: 0.8;
+}
+
+#salvar-tarefas:hover {
+  opacity: 1;
 }
 
 .item-marked {
