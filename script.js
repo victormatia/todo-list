@@ -102,16 +102,60 @@ function saveList() { // Salva toda a lista em sessionStorage
   const wayToOl = document.querySelector('#lista-tarefas');
 
   function save() {
-    sessionStorage.setItem('LT', wayToOl.innerHTML);
+    sessionStorage.setItem('task-list', wayToOl.innerHTML);
   }
 
   wayToSalvar.addEventListener('click', save);
 }
 
-window.onload = function returnTasks() {
+window.onload = function returnTasks() {  // Depois de carregada a página, verfica se existem tasks salvas e, caso tenha, retorna as mesmas.
   const wayToOl = document.querySelector('#lista-tarefas');
 
   if (sessionStorage.getItem('LT') !== '') {
-    wayToOl.innerHTML = sessionStorage.getItem('LT');
+    wayToOl.innerHTML = sessionStorage.getItem('task-list');
+    markOnTask();
+    completeTask();
+    clearTasks();
+    deleteCompleted()
+    saveList();
   }  
 }
+
+function addIdLi() {
+  const wayToLi = document.querySelectorAll('li');
+  for (let i = 0; i < wayToLi.length; i += 1) {
+    wayToLi[i].setAttribute('id', i);
+  }
+}
+
+const wayToUp = document.querySelector('#mover-cima');
+
+function moveUp() {
+  const wayToLiSelected = document.querySelector('.item-marked');
+  const wayToLi = document.querySelectorAll('li');
+  const previous = wayToLiSelected.previousSibling;
+
+  let test = wayToLiSelected.innerHTML; // retorna o conteudo
+  let test1 = previous.innerHTML;
+
+  previous.innerHTML = test
+
+  wayToLiSelected.innerHTML = test1;
+  
+
+
+}
+
+wayToUp.addEventListener('click', moveUp)
+
+
+
+
+const wayToRmSelected = document.querySelector('#remover-selecionado');
+
+function rmSelected() {
+  const wayToLiSelected = document.querySelector('.item-marked');
+  wayToLiSelected.remove();
+}
+
+wayToRmSelected.addEventListener('click', rmSelected);
